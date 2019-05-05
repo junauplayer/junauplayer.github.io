@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Junau-Player</title>
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="/favicon.ico" type="image/x-icon">
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.3/jquery.tipsy.min.css">
+      <link rel="stylesheet" href="css/styles.css?v=6" type="text/css"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://use.fontawesome.com/8ccef0adc1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.0/featherlight.min.css" type="text/css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css" type="text/css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.3/jquery.tipsy.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.0/featherlight.min.js"></script>
+   </head>
+   <body>
+      <div id="switcher">
+         <div class="info">
+            <div class="input" title="YouNow-Username" data-tooltippos="nw"><input type="text" id="streamerID" style="font-size: 17px; width: 146px;"/></div>
+            <div class="input" title="Verbinden/neu verbinden"><button id="connect"><i class="fa fa-play"></i></button></div>
+            <div class="input" title="Stopp"><button id="stop"><i class="fa fa-stop"></i></button></div>
+         </div>
+
+         <div class="btn_box" style="display:none">
+            <button id="linkButton" title="Direktlink zum Streamer" /><i class="fa fa-mail-forward"></i></button>
+            <div class="popup">
+               <p>Direktlink zu <span style="font-style:italic"></span>:</p>
+               <textarea readonly></textarea>
+            </div>
+         </div>
+         <div class="btn_box">
+            <button id="settingsBtn" title="Einstellungen" /><i class="fa fa-gear"></i></button>
+            <div class="popup">
+               <fieldset>
+                  <legend>Zeige</legend>
+                  <input type="checkbox" id="showChat" />
+                  <label for="showChat">Chat</label>
+               </fieldset>
+               <fieldset>
+                  <legend>Im Chat ausblenden</legend>
+                  <input type="checkbox" id="hideAvatars" />
+                  <label for="hideAvatars">Avatare</label>
+                  <input type="checkbox" id="hideGifts" />
+                  <label for="hideGifts">Geschenke</label>
+                  <input type="checkbox" id="hideTimestamps" />
+                  <label for="hideTimestamps">Timestamps</label>
+                  <br style="clear:both">
+                  <input type="checkbox" id="hideSuper" />
+                  <label for="hideSuper">SuperMessages</label>
+               </fieldset>
+            </div>
+         </div>
+         <div class="btn_box osd" style="margin-left:8px; padding-top:7px">
+            <div title="Automatisch bei Streamstart verbinden"><input id="reconnectCheckbox" type="checkbox" value="Autoreconnect" checked/>
+               <label style="position:relative; bottom:3px" for="reconnectCheckbox">Auto(re)connect</label>
+            </div>
+            <div></div>
+         </div>
+         <div class="right">
+            <div class="btn_box" style="display:none; padding:3px; margin-right:10px">
+               <button id="snapshotButton" style="background:#118D67;" /><i class="fa fa-camera"></i> Snapshot</button>
+            </div>
+            <div id="datetime">-</div>
+         </div>
+      </div>
+      <div id="outer">
+         <div id="stream">
+            <div id="welcome2" style="text-align:center; margin-top:30px; color:#FFF; font-size:35px;">Junau Player</div>
+            <div id="welcome3" style="margin:35px auto 0 auto; width:70%;text-align:center; color:#FFF;">
+               Junau-Trends deutsch:
+               <div id="trending"></div>
+            </div>
+            
+            <div id="streamView"></div>
+            <div id="streamBar" style="display: block;">
+                <div class="left">
+                   <div class="item thumbsup" title="Likes">
+                      <span id="streamLikes">0</span>
+                   </div>
+                   <div class="item halfban" title="Temporär stummgeschaltete User (nur bis Streamende)">
+                      <span id="streamMutes">0</span>
+                   </div>
+                   <div class="item lowlvl" title="Mindestlevel für Chat bzw. Chat-Modus">
+                      <span id="streamLowlevel">0</span>
+                   </div>
+                   <div class="item camera collapsible" title="Anzahl Captures (gespeicherte Clips)">
+                      <span id="streamMoments">0</span>
+                   </div>
+                </div>
+                <div class="right">
+                   
+                   <div class="item seeding" title="Freespin-Seeding ist aktiv (YouNow-Finanzspritze aufgrund zu geringer Echtgeldspenden)" style="display:none;"></div>
+                   <div style="display:none" class="item droppedframes" title="Paketverlust">
+                      <span id="streamDroppedFrames" style="color:#E70B0B"></span>
+                   </div>
+                   <div class="item clock" title="Dauer des Streams">
+                      <span id="streamTime"></span>
+                   </div>
+                   <div class="item eye" title="Zuschauer auf Younow">
+                      <span id="viewersYounow">?</span>
+                   </div>
+                </div>
+             </div>
+         </div>
+
+         
+         <div id="chat">
+         <ul id="messages">
+         </ul>
+      </div>
+      </div>
+      <div id="featherlight-userinfo" style="display:none">
+         <div>
+            <img class="profile_pic" />
+            <h2><a target="_blank"></a></h2>
+            <p>Land: <img data-field="flag" style="display:inline-block; vertical-align:middle; border:1px solid #888" /> <span data-field="country"></span> &bull; registriert seit <span data-field="registered"></span> &bull; Partner: <span data-field="partner"></span> &bull; Abonnierbar: <span data-field="subscribable"></span></p>
+            <div style="clear: both;"></div>
+            <dl style="width:50%; float:left">
+               <dt>Streams bisher: </dt>
+               <dd data-field="streams"></dd>
+               <dt>Global Spender Rank:</dt>
+               <dd data-field="gsr"></dd>
+               <dt>Fans:</dt>
+               <dd data-field="fans"></dd>
+            </dl>
+            <div class="socialmedia">
+               <strong>Links</strong>
+               <ul>
+               </ul>
+            </div>
+            <div style="clear:both;"></div>
+         </div>
+      </div>
+
+      <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
+      <script type="text/javascript" src="js/toastr.min.js"></script>
+      <script type="text/javascript" src="js/notificationQueue.js"></script>
+      <script type="text/javascript" src="js/YouNowPlayer.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+   </body>
+</html>
