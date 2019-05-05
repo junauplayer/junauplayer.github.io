@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 70 70"
+   style="enable-background:new 0 0 70 70;"
+   xml:space="preserve"
+   id="svg28"
+   sodipodi:docname="droppedframes.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+     id="metadata34"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs32"><style
+       id="style4577"
+       type="text/css">
+   
+    .fil0 {fill:black}
+   
+  </style></defs><sodipodi:namedview
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     id="namedview30"
+     showgrid="false"
+     inkscape:measure-start="0,0"
+     inkscape:measure-end="0,0"
+     inkscape:zoom="4.76792"
+     inkscape:cx="32.291544"
+     inkscape:cy="14.222577"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g26" /><g
+     id="g26"
+     style="fill:#ffffff"><path
+       id="path36"
+       d="M 5.2615137,4.6193137 V 51.742426 H 64.192288 V 4.6193137 Z M 59.28139,46.782098 H 10.172412 V 9.5796413 H 59.28139 Z m -16.203507,9.920655 6.381712,7.440492 H 19.994209 L 26.37592,56.702753 Z M 56.825941,44.301934 H 12.62786 V 12.059805 h 44.198081 z"
+       inkscape:connector-curvature="0"
+       style="stroke-width:2.46777534" /><g
+       style="clip-rule:evenodd;fill:#c70000;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       id="g4594"
+       transform="matrix(0.17614479,0,0,0.17429224,7.6426097,1.799524)"><g
+         id="g4583"
+         style="fill:#c70000;fill-opacity:1"><polygon
+           id="polygon4581"
+           points="123,325 259,88 172,107 194,8 114,8 74,184 156,165 "
+           class="fil0"
+           style="fill:#c70000;fill-opacity:1" /></g></g></g></svg>
