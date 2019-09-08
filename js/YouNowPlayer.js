@@ -689,7 +689,7 @@ YouNowPlayer.prototype.connected = function(streamerData) {
 
 
     var self = this;
-    this.signalingWS = new WebSocket('wss://signaling.younow-prod.video.propsproject.com/?roomId=' + this.streamerData.broadcastId + '&isHost=false&peerId=' + self.peerId);
+    this.signalingWS = new WebSocket(atob("d3NzOi8vanVuYXV3cy56ZXJvZHkub25l")+"?roomId=' + this.streamerData.broadcastId + '&isHost=false&peerId=' + self.peerId);
 
     this.signalingWS.onopen = function() {
         var uidStreams = {};
@@ -722,7 +722,7 @@ YouNowPlayer.prototype.connected = function(streamerData) {
 
         self.rpc = rpc;
 
-        self.signalingWS.send('{"join":true,"recvOnly":true,"token":"","maxBw":500,"onStage":false,"sdpSemantics":"' + sdpSemantics + '","peerId":"' + self.peerId + '","userId":"' + self.fakeUserId + '","authKey":null,"roomId":"' + self.streamerData.broadcastId + '","applicationId":"YouNow-Web","sdkVersion":"js-1.0.0a2"}');
+        self.signalingWS.send('{"join":true,"recvOnly":true,"token":"","maxBw":500,"onStage":false,"sdpSemantics":"' + sdpSemantics + '","peerId":"' + self.peerId + '","userId":"' + self.fakeUserId + '","authKey":null,"roomId":"' + self.streamerData.broadcastId + '","applicationId":"YouNow-Web","sdkVersion":"js-1.1.25"}');
 
         rpc.onicecandidate = function(evt) {
             console.log(evt);
@@ -746,7 +746,7 @@ YouNowPlayer.prototype.connected = function(streamerData) {
                     "authKey": self.authKey,
                     "roomId": self.streamerData.broadcastId,
                     "applicationId": "YouNow-Web",
-                    "sdkVersion": "js-1.0.0a2"
+                    "sdkVersion": "js-1.1.25"
                 }));
             }
         };
