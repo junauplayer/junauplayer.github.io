@@ -689,7 +689,7 @@ YouNowPlayer.prototype.connected = function(streamerData) {
 
 
     var self = this;
-    this.signalingWS = new WebSocket(atob("d3NzOi8vanVuYXV3cy56ZXJvZHkub25l")+'?roomId=' + this.streamerData.broadcastId + '&isHost=false&peerId=' + self.peerId);
+    this.signalingWS = new WebSocket('wss://signaling.younow-prod.video.propsproject.com/?roomId=' + this.streamerData.broadcastId + '&isHost=false&peerId=' + self.peerId);
 
     this.signalingWS.onopen = function() {
         var uidStreams = {};
