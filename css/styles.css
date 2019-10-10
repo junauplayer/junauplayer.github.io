@@ -161,7 +161,6 @@ summary{
 
 #welcome3 a.streamlink {
     cursor:pointer;
-    color:#FFA900;
     text-decoration:underline;
     font-size:17px;
 }
@@ -177,6 +176,59 @@ summary{
     object-fit:contain;
 }
 
+
+#welcome3 a.button, #originErrorHelp a.button {
+    padding: 5px;
+    margin-right:5px;
+    color: #fff;
+    background: #1e1e1e;
+    text-decoration: none;
+    box-shadow: 0 0 2px #ffffff;
+}
+#originErrorHelp a.button {
+    display:inline-block;
+    margin:15px 0;
+}
+
+#originErrorHelp {
+    display:none;
+    color:#fff;
+    padding:15px;
+    font-size:17px;
+}
+
+
+
+#originErrorHelp a {
+    text-decoration: underline;
+    color:#fff;
+}
+#originErrorHelp p {
+    margin:15px 0;
+    font-size:inherit;
+}
+#originErrorHelp ol {
+    font-size:inherit;
+    margin-left:25px;
+    padding-left:15px;
+}
+#originErrorHelp textarea {
+    width:100%;
+    box-sizing:border-box;
+    height:150px;
+    font-family:monospace;
+}
+
+
+#streamView .video .snapshotButton {
+    background:#118D67;
+    display:inline-block;
+    z-index:10;
+    padding:5px;
+    cursor:pointer;
+    font-size:13px;
+    color:#fff;
+}
 #streamView .video .userbadge {
     position:absolute;
     display:none;
@@ -208,7 +260,7 @@ summary{
 
 
 #streamView .video .snapshotButton {
-    background:#118D67;
+    background:#3a7975;
     display:inline-block;
     z-index:10;
     padding:5px;
@@ -216,7 +268,6 @@ summary{
     font-size:13px;
     color:#fff;
 }
-
 #streamView:hover .userbadge {
     display:inline-block;
 }
@@ -461,6 +512,117 @@ select{
 .info img,.last img{
     margin-right:3px
 }
+#trend_menu {
+    width:520px;
+    text-align:left;
+    margin:65px auto 0 auto;
+}
+
+#trend_menu #table_wrapper {
+    width:520px;    
+    margin-top:20px;
+    height:500px;
+    max-height:calc(100vh - 325px);
+    overflow-y:auto;
+}
+
+#trend_menu table {
+    width:500px;
+    font-size:17px;
+    table-layout:fixed;
+    border-collapse:collapse;
+}
+
+#trend_menu table th {
+    text-align:center;
+}
+
+#trend_menu table th, #trend_menu table td {
+    border-bottom:1px solid;
+    border-right:1px solid;
+    border-color:#444;
+    text-align:center;
+}
+
+#trend_menu table td:first-child {
+    text-align:right;
+}
+
+#trend_menu table th:last-child, #trend_menu table td:last-child {
+    border-right:none;
+}
+
+#trend_menu table tr:last-child td {
+    border-bottom:none;
+}
+
+#trend_menu table td {
+    padding:5px;
+}
+
+#trend_menu table td a.streamlink:hover {
+    text-decoration:underline;
+    color:#b45300;
+}
+
+#trend_menu #trend_locale {
+    list-style:none;
+    display:inline-block;
+    padding:0;
+    margin:0;
+    margin-left:10px;
+    position: relative;
+    top: 7px;
+    left:5px;
+}
+
+#trend_menu #trend_locale:after {
+    content:" ";
+    clear:both;
+    display:block;
+}
+
+#trend_menu #trend_locale li {
+    float:left;
+    cursor:pointer;
+    font-weight:700;
+    color:#fff;
+    font-size:16px;
+    border:1px solid;
+    padding:3px;
+    margin-right:10px;
+    border-color:transparent;
+}
+
+
+#trend_menu #trend_locale li:hover {
+    border-bottom:1px solid #fff;
+}
+
+#trend_menu #trend_locale li.active {
+    border-color:#fff;
+}
+
+#trend_menu table td.usr {
+    text-align:left;
+}
+
+#trend_menu table td.usr .lvl {
+    display:inline-block;
+    font-weight:700;
+    margin-right:5px;
+    width:30px;
+    text-align:center;
+    color:#444;
+}
+
+#trend_menu span.viewers_icon {
+    display:inline-block;
+    background:url('../icons/eye.svg') no-repeat 0 0;
+    background-size:100% auto;
+    width:20px;
+    height:20px;
+}
 #moment_list{
     color:#FFF;
     float:left;
@@ -570,9 +732,11 @@ select{
     float:left;
     width:calc(100% - 355px)
 }
-#streamView{
+#streamView,#originErrorHelp{
     float:left;
-    height:calc(100% - 35px)
+    height:calc(100% - 35px);
+    padding-right:5px;
+    box-sizing:border-box;
 }
 #streamBar{
     clear:both;

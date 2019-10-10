@@ -384,6 +384,13 @@ $(document).ready(function () {
 	onResize();
 });
 
+$('#trend_locale li').click(function() {
+		$('#trend_locale li.active').removeClass('active');
+		$(this).addClass('active');
+		clearTimeout(trendTimeout);
+		getTrends();
+	});
+
 $('#reconnectCheckbox').on('change', function() {
 	if ($('#reconnectCheckbox').prop('checked')) {
 		checkIfOnline();
@@ -418,8 +425,10 @@ Number.prototype.toFormat = function(decimals, decimal_sep, thousands_sep)
 }
 
 function getTrends() {
+	var locale = $('#trend_locale .active').attr('data-locale');
+
 	$.ajax({
-		url: 'https://cdn.younow.com/php/api/younow/dashboard/locale=de/trending=50',
+		url: 'https://cdn.younow.com/php/api/younow/trendingUsers/locale=' + locale + '/trending=150',
 		dataType: "json",
 		success: function (json, b, c) {
 			if(json.errorCode == 0) {
@@ -430,13 +439,20 @@ function getTrends() {
 						str += ', ';
 					}
 
-					str += '<a class="streamlink" data-username="' + json.trending_users[i].profile + '">' + json.trending_users[i].username + '</a>';
+					str += '<tr><td>' + (i + 1) + '</td><td class="usr"><a class="streamlink" data-username="' + json.trending_users[i].profile + '">' + json.trending_users[i].username + '</a></td><td>' + json.trending_users[i].viewers + '</td></tr>';
 				}
 
 				$('#trending').html(str);
 			}
 
-			setTimeout(getTrends, 30000);
+			trendTimeout = setTimeout(getTrends, 30000);
+		},
+
+		error: function(err) {
+			$('#originErrorHelp').css('display', 'block');			
+			$('#switcher').css('display', 'none');
+			$('#streamView, #welcome3').css('display', 'none');
+			$('#stream').css('display', 'block');
 		}
 	});
 }

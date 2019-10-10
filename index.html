@@ -72,15 +72,73 @@
       <div id="outer">
          <div id="stream">
             <div id="welcome2" style="text-align:center; margin-top:30px; color:#FFF; font-size:35px;">Junau Player</div>
-            <div id="welcome3" style="margin:35px auto 0 auto; width:70%;text-align:center; color:#FFF;">
-               <div style="margin:25px auto; text-align:center">
-                  <a class="button" href="https://github.com/junauplayer/junauplayer.github.io" target="_blank">Github</a>
-               </div>
-               Junau-Trends deutsch:
-               <div id="trending"></div>
+            <div id="welcome3" style="text-align:center; margin-top:0; color:#FFF;">forked from <a target="_blank" href="https://github.com/weinerrinkler">weinerrinkler</a>
+              <div style="margin:35px 0; position:relative">
+                  <a class="button" href="https://junauplayer.github.io/" target="_blank">Github</a>
+              </div>
+
+              <div id="trend_menu" style="">
+                  Trends:
+                  <ul id="trend_locale">
+                      <li data-locale="de" class="active">DE</li>
+                      <li data-locale="en">EN</li>
+                      <li data-locale="es">ES</li>
+                      <li data-locale="tr">TR</li>
+                      <li data-locale="me">Arabien</li>
+                      <li data-locale="ww">Global</li>
+                  </ul>
+
+                  <div id="table_wrapper">
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th style="width:10%">Pos.</th>
+                                  <th style="width:75%">Medienproduzent*in</th>
+                                  <th style="width:15%"><span class="viewers_icon"></span></th>
+                              </tr>
+                          </thead>
+                          <tbody id="trending">
+
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <p style="margin-top:5px">Hier stehen die tatsächlichen momentanen Zuschauerzahlen, <strong style="text-decoration:underline">nicht</strong> die Gesamt-Viewanzahl, mit der YouNow in der Übersicht die Statistiken schönt.</p>
+              </div>
             </div>
-            
+
             <div id="streamView"></div>
+
+            <div id="originErrorHelp">
+              <h1>Achtung!</h1>
+
+              <p>Aufgrund einer Änderung bei YN funktioniert diese Seite nur noch mit folgender Maßnahme: </p>
+
+              <ol>
+                  <li>Browser-Plugin "ModHeader" installieren für <a href="https://addons.mozilla.org/de/firefox/addon/modheader-firefox/" target="_blank">Firefox</a> oder <a href="https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj" target="_blank">Chrome</a></li>
+                  <li>Plugin öffnen, auf die drei Punkte klicken, dann auf "Import Profile"</li>
+                  <li>
+                      <p>Folgenden <span style="color:#DCA423">NEUEN</span> Code ins Textfeld kopieren</p>
+
+                      <textarea readonly>{"title":"Profile 1","hideComment":"","headers":[{"enabled":true,"name":"Origin","value":"younow.com","comment":""}],"respHeaders":[{"enabled":true,"name":"Access-Control-Allow-Origin","value":"*","comment":""}],"filters":[{"enabled":true,"type":"urls","urlRegex":"https://api.younow.com/"},{"enabled":true,"type":"urls","urlRegex":"https://cdn.younow.com/"},{"enabled":true,"type":"urls","urlRegex":"wss://signaling.younow-prod.video.propsproject.com/"}],"appendMode":""}</textarea>
+                  </li>
+                  <li>Bestätigen und Seite neu laden. "Tab lock" muss nicht aktiviert werden.</li>
+              </ol>
+
+              <a href="/info2.svg" class="button" target="_blank">Anleitung als Bild</a>
+
+              <!--<p>
+                  <strong>Alternativ gibt es das Skript jetzt auch als Electron-App für Windows und Linux: <a href="https://github.com/HengiFettlich/Drch-Electron/releases" target="_blank">https://github.com/HengiFettlich/Drch-Electron/releases</a></strong><br>(Mac-Version kommt noch)
+              </p>-->
+
+              <p>
+                   Die App für Android funktioniert ebenfalls wieder: <a href="https://play.google.com/store/apps/details?id=gq.drch.hengifettlich&amp;hl=gsw" target="_blank">https://play.google.com/store/apps/details?id=gq.drch.hengifettlich&amp;hl=gsw</a>
+              </p>
+              
+              <p>Ansonsten: Restreams auf Youtube suchen: <a href="https://www.youtube.com/results?search_query=drachenlord&amp;sp=EgJAAQ%253D%253D">https://www.youtube.com/results?search_query=drachenlord&amp;sp=EgJAAQ%253D%253D</a></p>
+            </div>
+
+            
             <div id="streamBar" style="display: block;">
                 <div class="left">
                    <div class="item thumbsup" title="Likes">
