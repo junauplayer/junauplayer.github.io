@@ -522,8 +522,7 @@ YouNowPlayer.prototype.connect = function(streamerID, mode) {
     var self = this;
     $.ajax({
         url: 'https://api.younow.com/php/api/broadcast/info/curId=0/user=' + streamerID,
-        jsonp: self.banBypass ? null : "callback",
-        dataType: self.banBypass ? "json" : "jsonp",
+        dataType: "json",
         success: function(json, b, c) {
             if (json["errorCode"] > 0 && mode == 0) {
                 if (json["errorCode"] == 134) {
@@ -560,8 +559,7 @@ YouNowPlayer.prototype.connect = function(streamerID, mode) {
 
                 $.ajax({
                     url: 'https://api.younow.com/php/api/channel/getInfo/channelId=' + json.userId,
-                    jsonp: "callback",
-                    dataType: "jsonp",
+                    dataType: "json",
                     success: function(json, b, c) {
                         if (!!json.totalSubscribers && json.isSubscribable) {
                             $('#bar_monitor').addClass('subscribable');
@@ -940,8 +938,7 @@ YouNowPlayer.prototype.showTempBan = function(uid) {
 
     $.ajax({
         url: 'https://api.younow.com/php/api/channel/getInfo/channelId=' + uid,
-        jsonp: "callback",
-        dataType: "jsonp",
+        dataType: "json",
         success: function(json, b, c) {
             if (json.errorCode !== 0)
                 return;
