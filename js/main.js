@@ -17,7 +17,7 @@ function escapeHtml(string) {
 
 var $osd = $('#osd');
 var $viewers = $('.item.eye');
-var streamerID = "Drache_Offiziell";
+var streamerID = "DracheLordRW";
 var $posInfo = $('.posInfo');
 var $p1 = $posInfo.children(':eq(0)');
 var $p2 = $posInfo.children(':eq(1)');
