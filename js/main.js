@@ -364,7 +364,7 @@ $(document).ready(function () {
 
 		currentPlayer.connect(getParam('s'), 0);
 	} else {
-		$('#streamerID').val('Drache_Offiziell');   
+		$('#streamerID').val('DracheLordRW');   
 	}
 
 	setTimeout(function() {
