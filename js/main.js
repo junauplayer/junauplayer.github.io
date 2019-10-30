@@ -17,7 +17,7 @@ function escapeHtml(string) {
 
 var $osd = $('#osd');
 var $viewers = $('.item.eye');
-var streamerID = "DracheLordRW";
+var streamerID = "DrachenLordRW";
 var $posInfo = $('.posInfo');
 var $p1 = $posInfo.children(':eq(0)');
 var $p2 = $posInfo.children(':eq(1)');
@@ -364,7 +364,7 @@ $(document).ready(function () {
 
 		currentPlayer.connect(getParam('s'), 0);
 	} else {
-		$('#streamerID').val('DracheLordRW');   
+		$('#streamerID').val('DrachenLordRW');   
 	}
 
 	setTimeout(function() {
